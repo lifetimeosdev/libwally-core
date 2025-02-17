@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# TESTED on Debian GNU/Linux 12 (bookworm) aarch64
+# TESTED on 
+#	- Debian GNU/Linux 12 (bookworm) aarch64
+#	- Ubuntu 25.04 x86-64
 
 set -e
 
@@ -10,6 +12,9 @@ mkdir -p ./release
 
 git submodule init
 git submodule update
+
+# sudo apt install python-is-python3 python3-setuptools
+
 ./tools/cleanup.sh
 ./tools/autogen.sh
 ./configure --prefix=$(realpath ./build) --enable-static --disable-shared
